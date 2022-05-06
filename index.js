@@ -1,21 +1,14 @@
+
 function valMinMax(arr){
 
-  if (!arr.length) return "0 0";
-  
-  let sums = [];
+  const sum = arr.reduce((a, b) => a + b, 0);
 
-  for (let i = 0; i < arr.length; i++){
-    let arrCopy = [...arr];
-    arrCopy.splice(i, 1);
-    const sum = arrCopy.reduce((a, b) => a + b, 0);
-    sums.push(sum);
-  }
-
-  const min = Math.min(...sums);
-  const max = Math.max(...sums);
+  const min = sum - Math.max(...arr);
+  const max = sum - Math.min(...arr);
 
   return min + " " + max;
 }
+
 function matriceCaree(arr){
   const x = arr.length;
   let sumDiagonalOne = 0;
@@ -31,6 +24,7 @@ function matriceCaree(arr){
 
   return Math.abs(sumDiagonalOne-sumDiagonalTwo);
 }
+
 function camelCase(str){
   if (!str.trim()) return 0;
   let count = 1;
@@ -44,6 +38,7 @@ function camelCase(str){
 
   return count;
 }
+
 function arcadeRank(top_scores, jeu){
 
   const getRank = (x) => {
